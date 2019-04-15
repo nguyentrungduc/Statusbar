@@ -45,3 +45,139 @@ transculent_statusbar.jpg
 
 - Điều cuối cùng là đừng quên thiết lập chủ đề này trong hoạt động của bạn mà bạn muốn đặt hiệu ứng tuyệt vời này của thanh trạng thái trong suốt.
 
+### StatusBar vs DrawerLayout
+
+        <?xml version="1.0" encoding="utf-8"?>
+        <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            tools:openDrawer="start">
+
+            <include
+                layout="@layout/app_bar_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <android.support.design.widget.NavigationView
+                android:id="@+id/nav_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:fitsSystemWindows="true"
+                app:headerLayout="@layout/nav_header_main"
+                app:menu="@menu/activity_main_drawer" />
+
+        </android.support.v4.widget.DrawerLayout>
+
+CoordinatorLayout xml
+
+        <?xml version="1.0" encoding="utf-8"?>
+
+        <android.support.design.widget.CoordinatorLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/background_light"
+            android:fitsSystemWindows="true"
+            >
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/main.appbar"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:theme="@style/AppTheme.AppBarOverlay"
+                android:fitsSystemWindows="true"
+                >
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/main.collapsing"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:expandedTitleMarginStart="48dp"
+                    app:expandedTitleMarginEnd="64dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/main.backdrop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:fitsSystemWindows="true"
+                        android:src="@drawable/material_flat"
+                        app:layout_collapseMode="parallax"
+                        />
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/main.toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_collapseMode="pin"
+                        />
+                </android.support.design.widget.CollapsingToolbarLayout>
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:lineSpacingExtra="8dp"
+                        android:text="@string/lorem"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        />
+
+                    <include layout="@layout/content_main" />
+                </LinearLayout>
+
+            </android.support.v4.widget.NestedScrollView>
+
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_comment_black_24dp"
+                app:layout_anchor="@id/main.appbar"
+                app:layout_anchorGravity="bottom|right|end"
+                />
+        </android.support.design.widget.CoordinatorLayout>
+
+style.xml 
+
+          <resources>
+
+              <!-- Base application theme. -->
+              <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+                  <!-- Customize your theme here. -->
+                  <item name="colorPrimary">@color/colorPrimary</item>
+                  <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+                  <item name="colorAccent">@color/colorAccent</item>
+              </style>
+
+              <style name="AppTheme.TransparentTheme">
+                  <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+                  <item name="android:statusBarColor">@android:color/transparent</item>
+              </style>
+
+              <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+              <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+          </resources>
+          
