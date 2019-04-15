@@ -1,5 +1,6 @@
 # Statusbar
-<img src="img/image1.png" height="300"/>
+
+<img src="img/img2.jpg" height="300"/>
 
 - Từ phiên bản Android KitKat (4.4), Google đã cho phép chúng tôi hỗ trợ status bar transparent, tuyệt vời nhất từng được tìm kiếm trong nhiều năm trong SDK chính thức.
 
