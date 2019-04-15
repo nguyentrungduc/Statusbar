@@ -3,7 +3,7 @@
 
 - Và bây giờ trong theme material mới của Lollipop với một số control UI và kết hợp màu sắc đẹp mắt, chúng tôi thực sự có thể tận dụng tối đa tính năng thú vị đó.
 
-- Status bar transparent này thường được sử dụng với navigation drawer dường như bên dưới thanh trạng thái. Ngoài ra đối với hoạt động chi tiết với hình ảnh trên đầu và bố trí điều phối viên, statusbar transparent giờ đây đã trở thành một công cụ UI tiêu chuẩn.
+- Status bar transparent này thường được sử dụng với navigation drawer dường như bên dưới status bar. Ngoài ra đối vovới hình ảnh trên đầu và bố trí điều phối viên, statusbar transparent giờ đây đã trở thành một công cụ UI tiêu chuẩn.
 
 - Ở đây tôi sẽ trình bày cách bạn có thể thực hiện giao diện tương tự trong ứng dụng của mình cho các thiết bị chạy phiên bản Android 4.4 trở lên.
 
@@ -31,17 +31,12 @@ thanh công cụ_activity.jpg
 
 transculent_statusbar.jpg
 
-- Ở đây, trong đoạn trích trên, -> android:windowTranslucentStatus -> 
+- Ở đây, trong đoạn trích trên, -> android:windowTranslucentStatus -> làm status bar transparent
 
-- In your container activity layouts, don’t forget to set the fitSystemWindow=”true”, for the parent layout and also for the toolbar and other internal views for which you want the UI fit to the system window. Which is quite a common use for drawer activity and detail activity with coordinator layout.
+- Trong bố trí hoạt động vùng chứa của bạn, đừng quên đặt fitSystemWindow =, đúng true, cho bố cục chính và cho thanh công cụ và các chế độ xem nội bộ khác mà bạn muốn UI phù hợp với cửa sổ hệ thống. Đó là một cách sử dụng khá phổ biến cho hoạt động ngăn kéo và hoạt động chi tiết với bố trí điều phối viên.
 
-- After applying the above changes, you will finally get the layout look as below:
+- Sau khi áp dụng các thay đổi ở trên, cuối cùng bạn sẽ có được bố cục như bên dưới:
+- Để áp dụng điều tương tự cho Lollipop, chỉ cần sao chép thư mục của value-v19 và dán vào giá trị-v21 trong đó bạn cũng có thể thực hiện một số thay đổi cụ thể cho phiên bản Lollipop .
 
+- Điều cuối cùng là đừng quên thiết lập chủ đề này trong hoạt động của bạn mà bạn muốn đặt hiệu ứng tuyệt vời này của thanh trạng thái trong suốt.
 
-- To apply this same thing for Lollipop as well, just copy the directory of values-v19 and paste as values-v21 in which you can make some changes specific to the Lollipop version as well.
-
-- Final thing is not to forget to set this theme in your activity for which you want to set this cool effect of transparent status bar.
-
- 
-
- 
