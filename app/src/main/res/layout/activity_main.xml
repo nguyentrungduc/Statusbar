@@ -3,42 +3,199 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/drawer"
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
+        tools:openDrawer="start">
 
-        tools:openDrawer="end">
-
-    <android.support.design.widget.CoordinatorLayout
+    <include
+            layout="@layout/app_bar_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true">
-
-        <android.support.v7.widget.Toolbar
-                android:id="@+id/bar"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:minHeight="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-        <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="none"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    </android.support.design.widget.CoordinatorLayout>
+            android:layout_height="match_parent" />
 
     <android.support.design.widget.NavigationView
-            android:id="@+id/nav"
+            android:id="@+id/nav_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header_main"
-            app:menu="@menu/nav_menu_main" />
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true">
 
+        <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <include
+                        android:id="@+id/nav_header"
+                        layout="@layout/nav_header"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                        android:id="@+id/layout_company_organization_chart"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_android_black_24dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/dp_16"
+                        android:paddingLeft="@dimen/dp_8"
+                        android:paddingRight="@dimen/dp_8"
+                        android:paddingTop="@dimen/dp_16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/nav_header">
+
+                    <ImageView
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
+                            app:srcCompat="@drawable/ic_android_black_24dp" tools:ignore="VectorDrawableCompat"/>
+
+                    <TextView
+                            android:id="@+id/text_company_organization_chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/dp_16"
+                            android:text="hi"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/layout_timeline"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_android_black_24dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/dp_16"
+                        android:paddingLeft="@dimen/dp_8"
+                        android:paddingRight="@dimen/dp_8"
+                        android:paddingTop="@dimen/dp_16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/layout_company_organization_chart">
+
+                    <ImageView
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
+                            app:srcCompat="@drawable/ic_android_black_24dp"
+                            tools:ignore="VectorDrawableCompat"/>
+
+                    <TextView
+                            android:id="@+id/text_timeline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/dp_16"
+                            android:text="wwww"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                        android:id="@+id/line1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_1"
+                        android:background="@color/colorPrimary"
+                        app:layout_constraintTop_toBottomOf="@id/layout_timeline" />
+
+                <TextView
+                        android:id="@+id/text_user_all_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/dp_8"
+                        android:paddingRight="@dimen/dp_8"
+                        android:paddingBottom="@dimen/dp_8"
+                        android:paddingTop="@dimen/dp_8"
+                        android:text="group"
+                        android:textSize="@dimen/sp_16"
+                        app:layout_constraintTop_toBottomOf="@id/line1" />
+
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_my_groups"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/text_user_all_group"
+                         />
+
+                <LinearLayout
+                        android:id="@+id/layout_home"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:onClick="onClick"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dp_8"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recycler_my_groups">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_android_black_24dp" tools:ignore="VectorDrawableCompat"/>
+
+                    <TextView
+                            android:id="@+id/text_user_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/dp_16"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                            android:textSize="@dimen/sp_16" />
+                </LinearLayout>
+
+                <View
+                        android:id="@+id/line2"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_1"
+                        android:background="@color/colorPrimary"
+                        app:layout_constraintTop_toBottomOf="@id/layout_home" />
+
+                <LinearLayout
+                        android:id="@+id/layout_logout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_android_black_24dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dp_8"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/line2">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_android_black_24dp"
+                            tools:ignore="VectorDrawableCompat"/>
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp_16"
+                            android:text="log out"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                            android:textSize="@dimen/sp_16" />
+                </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>

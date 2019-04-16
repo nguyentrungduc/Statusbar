@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="AppTheme.TransparentTheme">
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppTheme.TransparentTheme1" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+
+    </style>
+
+    <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.ActionBar" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">#324353</item>
+    </style>
+    <style name="AppTheme.TransparentTheme" tools:ignore="DuplicateDefinition">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">#12000000</item>
     </style>
 </resources>

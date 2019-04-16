@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         try {
             val field = View::class.java!!.getField(reflect)
-            if (field.getType() === Integer.TYPE)
+            if (field.type === Integer.TYPE)
                 return field.getInt(null)
         } catch (e: Exception) {
         }
