@@ -21,29 +21,25 @@
 
 normal_style.jpg
 
-- Theme ở trên này sẽ nằm trong tệp style.xml . Ở đây, NoActionBar có nghĩa là bạn sẽ không có tiêu đề trong hoạt động của mình. Vui lòng sử dụng tpppnar và sau đó đặt nó làm actionbar của activity.
+- Theme ở trên này sẽ nằm trong tệp style.xml . Ở đây, NoActionBar có nghĩa là bạn sẽ không có titile trong activity. Vui lòng sử dụng toolbar và sau đó đặt nó làm actionbar của activity.
 
 <img src="img/img3.jpg" height="200"/>
 
-- Điều này sẽ đặt toolbar như một actionbar. Bây giờ, đến điểm chính của chúng tôi là làm thế nào chúng ta có thể đặt thanh trạng thái mờ trên thanh công cụ.
+- Điều này sẽ đặt toolbar như một actionbar. Bây giờ, đến điểm chính của chúng tôi là làm thế nào chúng ta có thể đặt status bar transparent in toolbar
 
 - Tôi hy vọng bạn đã sao chép thư mục giá trị thông thường style.xml trong thư mục mới value-v19. 
 
-- Trong này styles.xml mà bạn đã sao chép trong các giá trị-V19 , xác định các chủ đề như sau:
+- Trong này styles.xml mà bạn đã sao chép trong các giá trị-V19 
 
-transculent_statusbar.jpg
 
 - Ở đây, trong đoạn trích trên, -> android:windowTranslucentStatus -> làm status bar transparent
 
-- Trong bố trí activity vùng chứa của bạn, đừng quên đặt fitSystemWindow =, đúng true, cho bố cục chính và cho toobar và các chế độ xem nội bộ khác mà bạn muốn UI phù hợp với cửa sổ hệ thống. Đó là một cách sử dụng khá phổ biến cho activity với coordinator layout.
+- Trong layout activity , android:fitSystemWindow ="true", cho main layout và cho toobar và các chế độ xem nội bộ khác mà bạn muốn UI phù hợp với cửa sổ hệ thống. Đó là một cách sử dụng khá phổ biến cho activity với coordinator layout.
 
-- Sau khi áp dụng các thay đổi ở trên, cuối cùng bạn sẽ có được bố cục như bên dưới:
 
 <img src="img/img4.jpg" height="200"/>
 
 - Để áp dụng điều tương tự cho Lollipop, chỉ cần sao chép thư mục của value-v19 và dán vào giá trị-v21 trong đó bạn cũng có thể thực hiện một số thay đổi cụ thể cho phiên bản Lollipop .
-
-- Điều cuối cùng là đừng quên thiết lập chủ đề này trong hoạt động của bạn mà bạn muốn đặt hiệu ứng tuyệt vời này của thanh trạng thái trong suốt.
 
 ### StatusBar vs DrawerLayout
 
